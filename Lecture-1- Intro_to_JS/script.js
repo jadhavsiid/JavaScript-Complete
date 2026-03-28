@@ -100,12 +100,18 @@ function greet(){
 greet()
 
 // 3.) Object
-let mobile_phone = {
-    'brand':'iPhone',
-    'model':'iPhone 17 Pro Max',
-    'color':'Cosmic Orange',
-    'price':'₹1,83,000'
+let car = {
+    brand: "Volkswagon",
+    mileage: "20kmpl",
+    color: "grey",
+    model: 'F50',
+    carRun()
+    {
+        console.log("Car Ran !!");
+    },
 }
-console.log(mobile_phone);
-console.log(mobile_phone.price);
+console.log(car); // This will print {brand: 'Volkswagon', mileage: '20kmpl', color: 'grey', model: 'F50'} 
+console.log(typeof car); // This will print Object
+console.log(car.color); // This will print grey
+car.carRun() // This will invoke carRun method inside car object
 
