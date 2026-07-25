@@ -46,3 +46,29 @@ head3Att.style.color = 'yellow'
 head3Att.style.display = 'inline'
 head3Att.style.padding = '10px'
 head3Att.style.borderRadius = '5px'
+
+
+// Handling NodeList - Changing colour of all h2's
+
+let bunchOfNodeList = document.querySelectorAll('h2')
+bunchOfNodeList.forEach((item)=>{
+    item.style.color = 'red'
+})
+
+
+// Handling HTMLCollection - Designing button's by first converting NodeList into Array using Array.from()
+
+let collectionHTML = document.getElementsByClassName('btn')
+
+let arrCollection = Array.from(collectionHTML)
+console.log(arrCollection);
+
+arrCollection.forEach((item) =>{
+    item.style.backgroundColor = 'green'
+    item.style.color = 'white'
+    item.style.padding = '0.7rem'
+    item.style.margin = '0.2rem'
+    item.style.backgroundColor = 'green'
+    item.style.border = 'none'
+    item.style.borderRadius = '10px'
+})
