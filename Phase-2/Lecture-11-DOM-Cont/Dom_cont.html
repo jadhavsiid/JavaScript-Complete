@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Continuation</title>
+</head>
+<body>
+    <h1 id="heading1">Hello World</h1>
+
+    <ul>
+        <li>Books</li>
+        <li>Pen</li>
+        <li>Pencil</li>
+        <li>Eraser</li>
+    </ul>
+
+</body>
+<script>
+    let heading1 = document.getElementById('heading1')
+    console.log(heading1);
+
+    // creating new HTML element using DOM
+    // createElement(), createTextNode() and appendChild()
+
+    let newElement = document.createElement('h2') // <h2></h2>
+    let newElementContent = document.createTextNode('Hello JavaScript') // <h2></h2>
+    newElement.appendChild(newElementContent)
+
+    console.log(newElement);   
+
+    document.body.appendChild(newElement)
+
+    // replacing HTML element using DOM
+    // replaceWith()
+
+    let itemToBeReplaced = document.querySelector('li:nth-child(3)')
+    console.log(itemToBeReplaced);
+
+    let replacingItem = document.createElement('li')
+    replacingItem.textContent = 'Sharpner'
+
+    itemToBeReplaced.replaceWith(replacingItem)
+
+    // removing existing HTML element using DOM
+    // remove()
+
+    let itemTobeRemoved = document.querySelector('li:last-child')
+    console.log(itemTobeRemoved);
+
+    itemTobeRemoved.remove()
+
+    // insertBefore()
+
+    let newElementToInsert = document.createElement('li')
+    let newElementToInsertContent = document.createTextNode('Diary')
+    newElementToInsert.appendChild(newElementToInsertContent)
+
+    console.log(newElementToInsert);
+
+    let elementbeforeInsert = document.querySelector('li:nth-child(2)')
+
+    let parentElement = document.querySelector('ul')
+
+    parentElement.insertBefore(newElementToInsert,elementbeforeInsert)
+
+</script>
+</html>
