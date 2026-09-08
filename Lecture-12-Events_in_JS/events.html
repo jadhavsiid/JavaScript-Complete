@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS</title>
+</head>
+
+<body>
+    <!-- An eg of simple event -->
+    <h1 id="heading1">Click the button below to display current date and time</h1>
+    <button id="btn">Click me</button>
+    <br>
+    <br>
+    <!-- <button id="btn" onclick="displayDateOnClick()">Click me</button> -->
+
+    <!-- Event Propagation -->
+    <div id="grandparent">
+        <div id="parent">
+            <button id="child-btn">Click it</button>
+        </div>
+    </div>
+</body>
+<script>
+    let h1 = document.getElementById('heading1')
+    let clickMeBtn = document.getElementById('btn')
+
+    // simple event handler function
+    // const displayDateOnClick = () =>{
+    //     h1.innerText = Date()
+    //   }
+
+    // using addEventListener
+    clickMeBtn.addEventListener('click', () => {
+        h1.innerText = Date()
+    })
+
+    // Event Propagation - Bubbling
+
+    // let grandparent = document.getElementById("grandparent");
+
+    // let parent = document.getElementById("parent");
+
+    // let childBtn = document.getElementById("child-btn");
+
+    // grandparent.addEventListener("click", () => {
+    //     console.log("grandparent clicked");
+    // });
+
+    // parent.addEventListener("click", () => {
+    //     console.log("parent clicked");
+    // });
+
+    // childBtn.addEventListener("click", () => {
+    //     console.log("childBtn clicked");
+    // });
+
+    // Event Propagation - Capturing
+    let grandparent = document.getElementById("grandparent");
+
+    let parent = document.getElementById("parent");
+
+    let childBtn = document.getElementById("child-btn");
+
+    grandparent.addEventListener("click", () => {
+        console.log("grandparent clicked");
+    }, true);
+
+    parent.addEventListener("click", () => {
+        console.log("parent clicked");
+    }, true);
+
+    childBtn.addEventListener("click", () => {
+        console.log("childBtn clicked");
+    }, true);
+
+</script>
+
+</html>
