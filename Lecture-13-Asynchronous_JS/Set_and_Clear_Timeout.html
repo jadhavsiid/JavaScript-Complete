@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Timers</title>
+    <style>
+        .btn{
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            padding: 0.2rem 0.8rem;
+        }
+        .btn:hover{
+            cursor: pointer;
+        }
+    </style>
+    <div class="timer-eg" style="display: flex; align-items: center; flex-direction: column;">
+        <h2 id="timer-display">Click 'Start Timer'</h2>
+        <div class="timer-btns">
+            <button id="start-btn" class="btn">Start Timer</button>
+            <button id="stop-btn" class="btn">Stop Timer</button>
+        </div>
+    </div>
+
+</head>
+<body>
+    <script>
+        "use strict"
+        console.log("Wait for a message after 2 sec");
+        // setTimeout()
+        setTimeout(()=>{
+            console.log("Hello I am Asynchronous message");
+        },2000)
+
+        // setTimeout() and clearTimeout()
+        const startBtn = document.getElementById('start-btn')
+        const stopBtn = document.getElementById('stop-btn')
+        let timerDisplay = document.getElementById('timer-display')
+        let timerBehaviour;
+
+        startBtn.addEventListener('click', ()=>{
+            let timerBehaviour = setTimeout(()=>{
+                timerDisplay.innerText = 'Timer Started after 1 sec'
+            },1000)
+        })
+
+        stopBtn.addEventListener('click',()=>{
+            clearTimeout(timerBehaviour)
+            timerDisplay.innerText = 'Timer Stopped'
+        })
+    </script>
+</body>
+</html>

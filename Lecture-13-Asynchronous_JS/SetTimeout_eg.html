@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeout Question</title>
+</head>
+<body>
+    <script>
+        /*
+        You're building an idle-session handler for a web app. If the user doesn't interact with the page (no mouse move, click, or keypress) for 10 seconds, show a warning message. If they still don't interact for another 5 seconds after that, log them out automatically. But if the user does anything at all, the whole countdown should reset from zero — the warning should never fire if they're actively using the app.
+        
+        Write a function startIdleTimer() that implements this behavior. Specific requirements:
+        
+        After 10 seconds of inactivity, log "Warning: You will be logged out due to inactivity" to the console.
+        
+        After 15 seconds total of inactivity (5 seconds past the warning), log "User logged out".
+        
+        Listen for mousemove, keydown, and click events on the document — any of these should reset both timers back to zero.
+        
+        If the user keeps interacting continuously, neither message should ever print.
+        
+        Make sure you're not stacking up timers with every event — each reset should clean up the previous ones properly.
+        */
+
+        let startIdleTimer = (()=>{
+
+            let tenSecInactivity = setTimeout(()=>{
+                console.log("Warning: You will be logged out due to inactivity");
+            },10000)
+
+            let fifteenSecInactivity = setTimeout(() => {
+                clearTimeout(tenSecInactivity)
+                console.log("User Logged Out");
+            }, 15000);
+
+            const listeningEvents = ['click','mouseover','mouseout','keydown','keyup']
+
+            listeningEvents.forEach((e)=>{
+                document.body.addEventListener(e, ()=>{
+                clearTimeout(tenSecInactivity)
+                clearTimeout(fifteenSecInactivity)
+            })
+            })
+
+
+        })()
+    </script>
+</body>
+</html>
