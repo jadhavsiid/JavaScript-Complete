@@ -23,7 +23,7 @@
         Make sure you're not stacking up timers with every event — each reset should clean up the previous ones properly.
         */
 
-        let startIdleTimer = (()=>{
+        let startIdleTimer = ()=>{
 
             let tenSecInactivity = setTimeout(()=>{
                 console.log("Warning: You will be logged out due to inactivity");
@@ -42,9 +42,7 @@
                 clearTimeout(fifteenSecInactivity)
             })
             })
-
-
-        })()
+        }
     </script>
 </body>
 </html>

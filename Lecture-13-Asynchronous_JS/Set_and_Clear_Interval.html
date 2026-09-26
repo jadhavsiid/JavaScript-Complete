@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set and Clear Interval</title>
+  </head>
+  <body>
+    <script>
+      let timeinSec = 5;
+
+    //   setInterval(() => {
+    //     let h3 = document.createElement("h3");
+    //     let thirdHeadingText = document.createTextNode("Hello");
+    //     h3.appendChild(thirdHeadingText);
+    //     document.body.appendChild(h3);
+    //   }, 60000);
+
+      let countdownTillZero = setInterval(()=>{
+        document.body.innerText = `Timer reading ${timeinSec}`
+        timeinSec--
+
+        if(timeinSec < 0){
+            clearInterval(countdownTillZero)
+            document.body.innerText = 'Timer killed'
+        }
+      },1000)
+    </script>
+  </body>
+</html>

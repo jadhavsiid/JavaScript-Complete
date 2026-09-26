@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval_eg</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        /* You're building a status-check widget for a long-running backend job (say, a video is being transcoded). You need to poll an API every 2 seconds to check if the job is done, but you can't poll forever — if the job hasn't finished after 30 seconds total, you need to stop polling and show a timeout message instead.
+        
+        Write a function pollJobStatus(checkStatusFn) that implements this behavior. checkStatusFn is a function you call on each poll — it returns true if the job is done, false otherwise (simulate it however you like, e.g. a function that returns true only after being called 6 times).
+        
+        Specific requirements:
+        
+        - Call checkStatusFn() every 2 seconds.
+        - If it returns true, log "Job complete!" and stop polling immediately — don't let the interval keep firing.
+        - If 30 seconds pass total without checkStatusFn() ever returning true, log "Timed out waiting for job" and stop polling.
+        
+        Whichever condition hits first should cleanly cancel everything — no leftover interval still ticking in the background after the function has "finished."
+        Log something on each individual poll attempt too (e.g. "Checking status... attempt 3") so you can watch it happen in real time.
+        
+        Once it's working, try two runs to actually observe both exit paths: one where checkStatusFn starts returning true partway through (confirm the interval stops right there, not one tick later), and one where it never returns true at all (confirm it stops exactly at 30 seconds and doesn't run forever). */
+
+        const pollJobStatus = (checkStatusFn)=>{}
+
+        let var1;
+        let var2;
+        let noOfPollingAttempts = 0
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practising Promises</title>
+</head>
+<body>
+    <!-- <h1>Practising Promises</h1> -->
+    <script>
+        "use strict"
+        // Creating a promise constructor
+        const newPromise = new Promise (function(resolve, reject){
+            setTimeout(() => {
+                const p = document.createElement('p')
+                const paraContent = document.createTextNode('Asynchronous task completed')
+                p.appendChild(paraContent)
+                document.body.appendChild(p)
+                resolve()
+            }, 2000);
+        })
+        newPromise.then(()=>{
+                const p = document.createElement('p')
+                const paraContent = document.createTextNode('Promise consumed succesfully')
+                p.appendChild(paraContent)
+                document.body.appendChild(p)
+        })
+
+
+        new Promise((resolve, reject)=>{
+            setTimeout(() => {
+                resolve({
+                    user_id: "angel_priya",
+                    password: "priya@146"
+                })
+            }, 3000);
+        }).then((user)=>{
+            return user.user_id;
+        }).then((userid)=>{
+            console.log(userid);
+        })
+
+
+        new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                let error = false;
+                if(!error){
+                    resolve({
+                        acc_no: 15324923430,
+                        ifsc: "BOBBKC"
+                    })
+                }
+                else{
+                    reject("ERROR, Can't fetch details")
+                }
+            }, 4000);
+        }).then((user)=>{
+            console.log(user);
+        }).catch((error)=>{
+            console.log(error);
+        }).finally(()=>{
+        console.log('Promise succesfully settled');
+        })
+
+    </script>
+</body>
+</html>
