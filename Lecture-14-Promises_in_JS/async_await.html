@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async and Await</title>
+  </head>
+  <body>
+    <h1>Async and Await in JavaScript</h1>
+    <script>
+      "use strict";
+
+      // Eg of async function
+      async function helloWorld() {
+        return "Hello world";
+      }
+      helloWorld().then((value) => {
+        console.log(value);
+      });
+
+      // let helloworld = helloWorld()
+      // console.log(helloworld);
+
+      // Eg of async and await together
+
+      const pracPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          let error = true;
+
+          if (!error) {
+            resolve({
+              prod_id: 111,
+              prod_name: "Mobile cover",
+            });
+          } else {
+            reject("ERROR, Product cannot be shown");
+          }
+        }, 2000);
+      })
+      // Way-1 to handle promise using then() and catch()
+
+      // .then((product)=> product.prod_name).then((prod_name)=> console.log(prod_name)).catch((error)=> console.log(error))
+
+      // Way-1 to handle promise using async and await
+
+    //   async function handlePracPromise(){
+    //       const pracPromiseResponse = await pracPromise
+    //       console.log(pracPromiseResponse);
+    //   }
+
+      // Way-1.1 to handle promise using async and await and handling errors using try and catch
+      async function handlePracPromise() {
+        try {
+          const pracPromiseResponse = await pracPromise;
+          console.log(pracPromiseResponse.prod_name);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      handlePracPromise();
+    </script>
+  </body>
+</html>
