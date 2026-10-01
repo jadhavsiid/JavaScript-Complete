@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API in JS</title>
+  </head>
+  <body>
+    <h1 id="name"></h1>
+    <p id="gender"></p>
+    <p id="age"></p>
+    <script>
+      "use strcit"
+      // let h1 = document.getElementById('name')
+      // let p1 = document.getElementById('gender')
+      // let p2 = document.getElementById('age')
+
+      let apiLink1 = "https://randomuser.me/api/"
+      let apiLink2 = 'https://cors-anywhere.herokuapp.com/https://restcountries.com/v3.1/all'
+
+      // const sportsApiReq = async ()=>{
+    //       try {
+    //           console.log('Getting Data...');
+    //           let response = await fetch(apiLink)
+    //           console.log(response);
+    //           // let apiData = await response.json()
+    //           // console.log(apiData.results[0]);
+    //           // h1.innerHTML = await apiData.results[0].name.first +"  "+  apiData.results[0].name.last
+    //           // p1.innerHTML = await apiData.results[0].gender
+    //           // p2.innerHTML = await apiData.results[0].dob["age"]
+    //       } catch (error) {
+    //           console.log(error);
+    //       }
+    //   }
+      // sportsApiReq()
+
+      // Promise.all()
+      async function userAndCountry(){
+          try{
+          const [userResponse, countryResponse] = await Promise.all([fetch(apiLink1), fetch(apiLink2)])
+          const JsonUserResponse = await userResponse.json()
+          const JsonCountryResponse = await countryResponse.json()
+
+          console.log(JsonUserResponse);
+          console.log(JsonCountryResponse);
+          }catch(error){
+              console.log(error);
+          }
+      }
+      userAndCountry()
+
+    </script>
+  </body>
+</html>
