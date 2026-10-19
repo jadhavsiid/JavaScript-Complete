@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented JavaScript</title>
+</head>
+<body>
+    <h1>Object oriented JavaScript</h1>
+    <script>
+        "use strict"
+        // Creating a constructor function named as Person for person object
+        function Person(name,age,email,eyecolor){
+            this.name = name
+            this.age = age
+            this.email = email
+            this.eyecolor = eyecolor
+        }
+
+        const myself = new Person('Siddhesh',25,'siidjadhav@gmail.com','black')
+        const myGf = new Person('Khushi', 21, 'kvishwakarma@gmail.com','black')
+
+        console.log(myself);
+        console.log(myGf);
+    </script>
+</body>
+</html>
