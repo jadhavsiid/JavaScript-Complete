@@ -1,27 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Object Oriented JavaScript</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Object oriented JavaScript</h1>
     <script>
-        "use strict"
-        // Creating a constructor function named as Person for person object
-        function Person(name,age,email,eyecolor){
-            this.name = name
-            this.age = age
-            this.email = email
-            this.eyecolor = eyecolor
-        }
+      "use strict";
+      // Creating a constructor function named as Person for person object
+      function Person(name, age, email, eyecolor) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.eyecolor = eyecolor;
 
-        const myself = new Person('Siddhesh',25,'siidjadhav@gmail.com','black')
-        const myGf = new Person('Khushi', 21, 'kvishwakarma@gmail.com','black')
+        return this;
+      }
 
-        console.log(myself);
-        console.log(myGf);
+      const myself = new Person(
+        "Siddhesh",
+        25,
+        "siidjadhav@gmail.com",
+        "black",
+      );
+      const myGf = new Person("Khushi", 21, "kvishwakarma@gmail.com", "black");
+
+      // Person.nationality = "American" Note: You can't add properties to constructor like this.
+      // const random = new Person('John',10,'xyz@gmail.com','blue','american')
+
+      // console.log(random);
+      console.log(myself);
+      console.log(myGf);
+
+      // Prototype
+
+      // const myName = "Siddhesh Jadhav"
+      // const myName = new String("Ironman");
+      // console.log(myName);
+
+      // const p1 = {
+      //   fname: "Siddhesh",
+      //   laname: "Jadhav",
+      // };
+      // console.log(p1);
+
+      // const p2 = Object.create(p1)
+      // console.log(p2);
     </script>
-</body>
+  </body>
 </html>
