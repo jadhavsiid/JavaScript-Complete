@@ -48,6 +48,82 @@
 
       // const p2 = Object.create(p1)
       // console.log(p2);
+
+
+      // We've to learn - __proto__, object.setPrototype and constructor.prototype.yourMethod
+
+
+
+      // Classes, objects and inheritance
+
+      let car = {
+        make: "Toyota",
+        model: "Camry",
+        year: 2020,
+        start: function (param){
+          return `${this.make} started in ${this.year}`
+        }
+      }
+      console.log(car.start());
+
+      // Constructor fn
+      function Person(name,age){
+        this.name = name
+        this.age = age
+      }
+      // Object created based on constructor function
+      let jack = new Person('Jack',39)
+      console.log(jack);
+
+      // another constructor fn
+      function Animal(type){
+        this.type = type
+      }
+
+      // Adding a method inside a constructor function using prototype
+      Animal.prototype.speak = function(){
+        return `${this.type} speaks`
+      }
+      // Adding a new method inside a Array object's prototype
+      Array.prototype.siddhesh = function(){
+        return `Custom method ${this}`
+      }
+
+      let myArray = [1,2,3]
+      console.log(myArray.siddhesh());
+
+      // Creating classes
+
+      class IceCream{
+        constructor(flavor,brand){
+          this.flavor = flavor
+          this.brand = brand
+        }
+
+        order(){
+          return `An ice-cream with ${this.flavor} flavor of ${this.brand} brand.`
+        }
+
+        extras(){
+          return `Add some sprinklers to ${this.flavor} ice cream.`
+        }
+      }
+
+      // Inheritance
+      // What i want is my Food class should inherit properties and methods of IceCream class
+      class Food extends IceCream{
+        drive(){
+          return `${this.flavor} is inherited inside Food from IceCream`
+        }
+      }
+      // Creating object out of classes
+
+      let myIceCream = new IceCream('Vannila','Amul')
+      console.log(myIceCream.order());
+      console.log(myIceCream.flavor);
+
+      let myFood = new Food('Chocolate','Magnum')
+      console.log(myFood.extras());
     </script>
   </body>
 </html>
